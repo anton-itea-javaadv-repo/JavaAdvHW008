@@ -84,6 +84,6 @@ public class Unloader implements Runnable {
                 clearTransporter();
             }
         }
-        System.out.println("Unloader finished work.");
+        System.out.println("Unloader finished work. Unloader's heap is: " + heapToLoad.getStockCount() + ".");
     }
 }
