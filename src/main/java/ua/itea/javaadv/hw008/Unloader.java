@@ -61,7 +61,7 @@ public class Unloader implements Runnable {
 
     @Override
     public void run() {
-        while (shouldContinue) {
+        while (trolley == null || !trolley.isExhausted() || shouldContinue) {
             checkTrolleyIsExhausted();
             try {
                 TimeUnit.SECONDS.sleep(1);
@@ -84,6 +84,6 @@ public class Unloader implements Runnable {
                 clearTransporter();
             }
         }
-        System.out.println("Unloader finished work. Unloader's heap is: " + heapToLoad.getStockCount() + ".");
+        System.out.println("Unloader finished work.");
     }
 }
